@@ -4,8 +4,19 @@ import java.util.Objects;
 import java.util.ArrayList;
 import java.util.List;
 public class Gerente extends Funcionario {
-    List<Produto> produt0s=new ArrayList<>();
+    static List<Produto> produt0s=new ArrayList<>();
     Scanner sc=new Scanner(System.in);
+    public static void exibirInformacoes() {
+        System.out.println("Produtos disponiveis: ");
+        for(Produto produto:produt0s){
+        System.out.println();
+        System.out.println("Modelo: " + produto.getModelo());
+        System.out.println("Cor: " + produto.getCor());
+        System.out.println("Tamanho: " + produto.getTamanho());
+        System.out.println("Preço: " + produto.getPreco());
+        System.out.println("Estoque: " + produto.getEstoque());
+        System.out.println();}
+    }
     public void adicionaPEstoque(){
         String modelo, cor, tamanho;
         double preco;

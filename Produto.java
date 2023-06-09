@@ -7,7 +7,6 @@ public class Produto {
     private String tamanho;
     private double preco;
     private int estoque;
-    List<Produto> pr0dutos=new ArrayList<>();;
     public Produto(String modelo, String cor, String tamanho, double preco, int estoque) {
         this.modelo = modelo;
         this.cor = cor;
@@ -47,15 +46,5 @@ public class Produto {
         this.estoque = estoque;
     }
 
-    public void exibirInformacoes() {
-        System.out.println("Produtos disponiveis: ");
-        for(Produto produto:pr0dutos){
-        System.out.println();
-        System.out.println("Modelo: " + produto.getModelo());
-        System.out.println("Cor: " + produto.getCor());
-        System.out.println("Tamanho: " + produto.getTamanho());
-        System.out.println("Preço: " + produto.getPreco());
-        System.out.println("Estoque: " + produto.getEstoque());
-        System.out.println();}
-    }
+    
 }

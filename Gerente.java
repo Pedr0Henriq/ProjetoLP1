@@ -111,6 +111,7 @@ public class Gerente extends Funcionario {
         System.out.println("Gerente: "+f1.nome+", CPF: "+f1.cpf);
         System.out.println("Cliente: "+cl.nome+", CPF: "+cl.cpf+", Codigo: "+cl.getCodigoCliente()+", CEP: "+cl.getCep()+", Numero da casa: "+cl.getNumeroCasa());
         System.out.println("Recibo gerado, agradecemos a preferencia!");
+        c1.efetuarCompra();
 
     }
     @Override
@@ -124,6 +125,7 @@ public class Gerente extends Funcionario {
         System.out.println("Funcionario: "+f1.nome+", CPF: "+f1.cpf);
         System.out.println("Cliente: "+cl.nome+", CPF: "+cl.cpf+", Codigo: "+cl.getCodigoCliente()+", CEP: "+cl.getCep()+", Numero da casa: "+cl.getNumeroCasa());
         System.out.println("Recibo gerado, agradecemos a preferencia!");
+        c1.efetuarCompra();
     }
     @Override
     public void gerarRecibo(Carrinho c1,Dinheiro di,Funcionario f1,Cliente cl){
@@ -136,5 +138,6 @@ public class Gerente extends Funcionario {
         System.out.println("Funcionario: "+f1.nome+", CPF: "+f1.cpf);
         System.out.println("Cliente: "+cl.nome+", CPF: "+cl.cpf+", Codigo: "+cl.getCodigoCliente()+", CEP: "+cl.getCep()+", Numero da casa: "+cl.getNumeroCasa());
         System.out.println("Recibo gerado, agradecemos a preferencia!");
+        c1.efetuarCompra();
     }
 }

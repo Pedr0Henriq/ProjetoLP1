@@ -29,6 +29,7 @@ public class Funcionario extends Pessoa {
         System.out.println("Funcionario: "+f1.nome+", CPF: "+f1.cpf+", Cargo: "+f1.cargo);
         System.out.println("Cliente: "+cl.nome+", CPF: "+cl.cpf+", Codigo: "+cl.getCodigoCliente()+", CEP: "+cl.getCep()+", Numero da casa: "+cl.getNumeroCasa());
         System.out.println("Recibo gerado, agradecemos a preferencia!");
+        c1.efetuarCompra();
 
     }
     public void gerarRecibo(Carrinho c1,Pix px,Funcionario f1,Cliente cl){
@@ -40,6 +41,7 @@ public class Funcionario extends Pessoa {
         System.out.println("Funcionario: "+f1.nome+", CPF: "+f1.cpf+", Cargo: "+f1.cargo);
         System.out.println("Cliente: "+cl.nome+", CPF: "+cl.cpf+", Codigo: "+cl.getCodigoCliente()+", CEP: "+cl.getCep()+", Numero da casa: "+cl.getNumeroCasa());
         System.out.println("Recibo gerado, agradecemos a preferencia!");
+        c1.efetuarCompra();
     }
     public void gerarRecibo(Carrinho c1,Dinheiro di,Funcionario f1,Cliente cl){
         System.out.println("GERANDO RECIBO!!");
@@ -50,5 +52,6 @@ public class Funcionario extends Pessoa {
         System.out.println("Funcionario: "+f1.nome+", CPF: "+f1.cpf+", Cargo: "+f1.cargo);
         System.out.println("Cliente: "+cl.nome+", CPF: "+cl.cpf+", Codigo: "+cl.getCodigoCliente()+", CEP: "+cl.getCep()+", Numero da casa: "+cl.getNumeroCasa());
         System.out.println("Recibo gerado, agradecemos a preferencia!");
+        c1.efetuarCompra();
     }
 }

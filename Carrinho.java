@@ -1,15 +1,22 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Carrinho {
+public class CarrinhoDeCompras {
     private List<Produto> produtos;
 
-    public Carrinho() {
+    public CarrinhoDeCompras() {
         produtos = new ArrayList<>();
     }
 
-    public void adicionarProduto(Produto produto) {
-        produtos.add(produto);
+    public void adicionarProduto(Produto produto, int quantidade) {
+        if(quantidade<=produto.getEstoque()){
+            for(int i=0; i < quantidade;i++){
+                produtos.add(produto);
+            }
+        }
+        else
+            System.out.println("Não há essa quantidade desse produto, o estoque desse produto é " + produto.getEstoque());
+        
     }
 
     public void removerProduto(Produto produto) {

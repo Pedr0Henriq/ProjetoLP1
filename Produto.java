@@ -1,10 +1,13 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Produto {
     private String modelo;
     private String cor;
     private String tamanho;
     private double preco;
     private int estoque;
-
+    List<Produto> pr0dutos=new ArrayList<>();;
     public Produto(String modelo, String cor, String tamanho, double preco, int estoque) {
         this.modelo = modelo;
         this.cor = cor;
@@ -45,10 +48,14 @@ public class Produto {
     }
 
     public void exibirInformacoes() {
-        System.out.println("Modelo: " + modelo);
-        System.out.println("Cor: " + cor);
-        System.out.println("Tamanho: " + tamanho);
-        System.out.println("Preço: " + preco);
-        System.out.println("Estoque: " + estoque);
+        System.out.println("Produtos disponiveis: ");
+        for(Produto produto:pr0dutos){
+        System.out.println();
+        System.out.println("Modelo: " + produto.getModelo());
+        System.out.println("Cor: " + produto.getCor());
+        System.out.println("Tamanho: " + produto.getTamanho());
+        System.out.println("Preço: " + produto.getPreco());
+        System.out.println("Estoque: " + produto.getEstoque());
+        System.out.println();}
     }
 }

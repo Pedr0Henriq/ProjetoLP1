@@ -20,9 +20,17 @@ public class Gerente extends Funcionario {
     public void adicionaPEstoque(){
         String modelo, cor, tamanho;
         double preco;
-        int estoque;
+        int estoque,k=0;
                 System.out.println("Diga o modelo: ");
                 modelo=sc.next();
+                for(Produto p: produt0s){
+                    if(Objects.equals(p.getModelo(), modelo)){
+                        System.out.println("O Produto ja existe!");
+                        k++;
+                        break;
+                    }
+                }
+                if(k==0){
                 System.out.println("Digite a cor: ");
                 cor=sc.next();
                 System.out.println("Digite o tamanho:");
@@ -32,7 +40,7 @@ public class Gerente extends Funcionario {
                 System.out.println("Digite a quantidade: ");
                 estoque=sc.nextInt();
                 Produto produto = new Produto(modelo, cor, tamanho, preco, estoque);
-                produt0s.add(produto);
+                produt0s.add(produto);}
                 
         }
     public void removePEstoque(){

@@ -1,4 +1,4 @@
-public class Pessoa {
+public abstract class Pessoa {
     protected String nome, genero, cpf;
 
     public String getNome(){

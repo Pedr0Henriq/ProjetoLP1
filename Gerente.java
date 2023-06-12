@@ -2,6 +2,7 @@ import java.lang.Override;
 import java.util.Scanner;
 import java.util.Objects;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 public class Gerente extends Funcionario {
     static List<Produto> produt0s=new ArrayList<>();
@@ -9,6 +10,7 @@ public class Gerente extends Funcionario {
     public static void exibirInformacoes() {
         System.out.println("Produtos disponiveis: ");
         for(Produto produto:produt0s){
+        if(produto.getEstoque()>0){
         System.out.println();
         System.out.println("Modelo: " + produto.getModelo());
         System.out.println("Cor: " + produto.getCor());
@@ -16,6 +18,16 @@ public class Gerente extends Funcionario {
         System.out.println("Preço: " + produto.getPreco());
         System.out.println("Estoque: " + produto.getEstoque());
         System.out.println();}
+        else{
+            System.out.println("Produtos Indisponiveis: ");
+            System.out.println();
+            System.out.println("Modelo: " + produto.getModelo());
+            System.out.println("Cor: " + produto.getCor());
+            System.out.println("Tamanho: " + produto.getTamanho());
+            System.out.println("Preço: " + produto.getPreco());
+            System.out.println("Estoque: " + produto.getEstoque());
+            System.out.println();
+        }}
     }
     public void adicionaPEstoque(){
         String modelo, cor, tamanho;
@@ -48,15 +60,16 @@ public class Gerente extends Funcionario {
         int k=0;
         System.out.println("Digite o nome do produto: ");
         _modelo=sc.next();
-        for(Produto produto: produt0s){
-            if(Objects.equals(produto.getModelo(), _modelo)){
-                produt0s.remove(produto);
+        Iterator<Produto> iterator = produt0s.iterator();
+        while (iterator.hasNext()) {
+            Produto p = iterator.next();
+            if (Objects.equals(_modelo, p.getModelo())) {
+                iterator.remove();
                 k++;
                 System.out.println("Produto removido!");
-            }
-        }
+            }}
         if(k==0){
-            System.out.println("Produto do modelo: "+_modelo+" nao foi encontrado!");
+            System.out.println("Produto nao existe!");
         }
     }
     public void editaPEstoque(){

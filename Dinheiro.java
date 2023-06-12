@@ -1,6 +1,6 @@
 import java.util.Scanner;
 import java.util.Objects;
-public class Dinheiro {
+public class Dinheiro implements IPagamento{
     public int formapagamento(Carrinho c1){
         Scanner sc;
         System.out.println("Valor da Compra: R$"+c1.calcularTotal());

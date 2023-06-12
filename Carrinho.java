@@ -1,5 +1,7 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 
 public class Carrinho {
     List<Produto> produtos;
@@ -9,12 +11,32 @@ public class Carrinho {
     }
 
     public void adicionarProduto(Produto produto) {
+    if(produto.getEstoque()>0){
       produtos.add(produto);
+        produto.setEstoque(produto.getEstoque()-1);}
+    else{
+        System.out.println("Nao temos estoque do produto!");
+    }
     }
 
     public void removerProduto(Produto produto) {
-        produtos.remove(produto);
-    }
+        int k=0;
+        String _modelo;
+        _modelo=produto.getModelo();
+        Iterator<Produto> iterator2 = produtos.iterator();
+        while (iterator2.hasNext()) {
+            Produto pr = iterator2.next();
+            if (_modelo.equals(pr.getModelo())) {
+                iterator2.remove();  
+                System.out.println("Produto removido do carrinho!");
+                k++;
+            }}
+        if(k==0){
+            System.out.println("Produto nao esta no carrinho!");}
+        else{
+            produto.setEstoque(produto.getEstoque()+1);
+        }
+        }
 
     public double calcularTotal() {
         double total = 0.0;
@@ -25,13 +47,6 @@ public class Carrinho {
     }
 
     public void efetuarCompra() {
-        
-        for (Produto produto : produtos) {
-            int estoqueAtual = produto.getEstoque();
-            produto.setEstoque(estoqueAtual - 1);
-            
-        }
-        System.out.println("Compra efetuada com sucesso!");
         produtos.clear();
     }
 

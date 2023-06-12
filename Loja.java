@@ -1,12 +1,15 @@
 import java.util.Objects;
 import java.util.Scanner;
 public class Loja {
+    static Scanner sc = new Scanner(System.in);
+    static Carrinho c1= new Carrinho();
+    static Gerente g1=new Gerente();
     public static void main(String[] args) {
         menu();
     }
 
     private static void menu() {
-        Scanner sc = new Scanner(System.in);
+        
         System.out.println("==============MENU===============");
         System.out.println("1- Acessar perfil Cliente.");
         System.out.println("2- Acessar perfil Gerente.");
@@ -38,8 +41,7 @@ public class Loja {
     }
 
     private static void cliente() {
-        Scanner sc = new Scanner(System.in);
-        Carrinho c1= new Carrinho();
+        
         String _modelo;
         System.out.println("=============CLIENTE==============");
         System.out.println("1- Visualizar produtos.");
@@ -72,26 +74,21 @@ public class Loja {
                 cliente();
                 break;
             case 3:
-                int n=0;
                 System.out.println("Digite o modelo do produto: ");
                 _modelo=sc.next();
                 for(Produto p: c1.produtos){
                     if(Objects.equals(p.getModelo(), _modelo)){
                         System.out.println("Removendo produto do carrinho!");
                         c1.removerProduto(p);
-                        n++;
                         c1.exibirCarrinho();
-                    }
-                }
-                if(n==0){
-                    System.out.println("Produto nao existe");
-                }
+                        break;}}
                 cliente();
                 break;
             case 4:
                 Cliente cl=new Cliente();
                 Gerente g=new Gerente();
                 Funcionario f=new Funcionario();
+                String func;
                 System.out.println("Vamos pegar os dados do cliente!");
                 System.out.println("Digite o nome: ");
                 cl.setNome(sc.next());
@@ -105,7 +102,8 @@ public class Loja {
                 cl.setNumeroCasa(sc.nextInt());
                 System.out.println();
                 System.out.println("O seu vendendor é: G-gerente F-funcionario");
-                if(Objects.equals("G", sc.next())){
+                func=sc.next();
+                if(Objects.equals("G", func)){
                     System.out.println("Vamos pegar os dados do gerente!");
                     System.out.println("Digite o nome: ");
                     g.setNome(sc.next());
@@ -127,7 +125,7 @@ public class Loja {
                         g.gerarRecibo(c1, di, g, cl);
                     }
                 }
-                if(Objects.equals("F", sc.next())){
+                if(Objects.equals("F", func)){
                     System.out.println("Vamos pegar os dados do funcionario!");
                     System.out.println("Digite o nome: ");
                     f.setNome(sc.next());
@@ -139,18 +137,18 @@ public class Loja {
                     int fp=f.efetuaVenda(c1);
                     if(fp==0){
                         CartaoCredito cc=new CartaoCredito();
-                        f.gerarRecibo(c1, cc, g, cl);
+                        f.gerarRecibo(c1, cc, f, cl);
                     }
                     else if(fp==1){
                         Pix px=new Pix();
-                        f.gerarRecibo(c1, px, g, cl);
+                        f.gerarRecibo(c1, px, f, cl);
                     }
                     else{
                         Dinheiro di=new Dinheiro();
-                        f.gerarRecibo(c1, di, g, cl);
+                        f.gerarRecibo(c1, di, f, cl);
                     }
                 }
-                cliente();
+                menu();
                 break;
             case 5:
                 menu();
@@ -162,8 +160,6 @@ public class Loja {
     }
 
     private static void gerente() {
-        Scanner sc = new Scanner(System.in);
-        Gerente g1=new Gerente();
         System.out.println("=============GERENTE==============");
         System.out.println("1- Adicionar novo produto.");
         System.out.println("2- Remover um produto.");

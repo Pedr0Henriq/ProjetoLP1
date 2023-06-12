@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class CartaoCredito {
+public class CartaoCredito implements IPagamento{
     public int formapagamento(Carrinho c1){
         Scanner sc;
         int parcelas;

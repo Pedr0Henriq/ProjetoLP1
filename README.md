@@ -20,22 +20,31 @@ Ainda hoje em dia, muitos estabelecimentos comerciais, principalmente os de meno
 
 Pessoa: 
 - Classe Abstrata;
+- Atributos: protected String nome, genero, cpf;
+- Métodos: public String getNome(), public String getGenero(), public String getCpf(), public void setNome(), public void setGenero(), public void setCpf();
 - Relacionamento: É a classe mãe das classes Cliente, Funcionario;
 
 Cliente:
+- Atributos: private String cep, private int numeroCasa, codigoCliente;
+- Métodos: public Cliente(), public String getCep(), public String getNumeroCasa(), public String getCodigoCliente(), public void setCep(), public void setNumeroCasa(), public void setCodigoCliente();
 - Relacionamento: A classe herda da superclasse Pessoa, e as classes Gerente, Funcionario e Agregação com a classe Loja;
 
 Gerente: 
-- Contém polimorfismo dinâmico e estático;
+- Métodos: public static void exibirInformacoes(), public void adcionaPEstoque(), public void removePEstoque(), public void editaPEstoque(), public int efetuaVenda(), public void gerarRecibo();
 - Relacionamento: A classe herda da superclasse Funcionario, Agregação com as classes Loja e Carrinho;
 
 Funcionario:
+- Atributos: private String cargo;
+- Métodos: public String getCargo(), public void setCargo(), public int efetuaVenda(), public void gerarRecibo();
 - Relacionamentos: A classe herda da superclasse Pessoa, é a superclasse da classe Gerente e Agregação com a classe Loja; 
 
 Produto:
+- Atributos: private String modelo, private String cor, private String tamanho, private double preco, private int estoque;
+- Métodos: public Produto(), public String getModelo(), public void setModelo(), public String getCor(), public void setCor(), public String getTamanho(), public void setTamanho(), public double getPreco(), public void setPreco(), public int getEstoque(), public void setEstoque();
 - Relacionamentos: Agregação com as classes Carrinho e Gerente;
 
 Carrinho:
+- Métodos: public Carrinho(), public void adicionarProduto(), public void removerProduto(), public double calcularTotal(), public void efetuarCompra(), public void exibirCarrinho();
 - Relacionamento: Agregação com as classes Produto e Loja;
 
 IPagamento:
@@ -49,9 +58,10 @@ Dinheiro:
 - Relacionamentos: A classe implementa a interface IPagamento;
 
 Pix:
--Relacionamentos: A classe implementa a interface IPagamento;
+- Relacionamentos: A classe implementa a interface IPagamento;
 
 Loja:
+- Métodos: public static void main(String[] args), private static void menu(), private static void cliente(), private static void gerente();
 - Relacionamentos: A classe tem Agregação com as classes Gerente, Funcionario, Cliente e Carrinho;
 
 3.	FERRAMENTAS UTILIZADAS

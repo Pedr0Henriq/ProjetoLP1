@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.Objects;
-public class Pix {
-    public int formapagamento implements IPagamento(Carrinho c1){
+public class Pix implements IPagamento{
+    public int formapagamento (Carrinho c1){
         Scanner sc;
         System.out.println("Valor da Compra: R$"+c1.calcularTotal());
         System.out.println("Nossa chave pix: 34.434.152/0001-14");
